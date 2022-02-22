@@ -6,7 +6,7 @@
 /*   By: vicmarti <vicmarti@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 20:28:53 by vicmarti          #+#    #+#             */
-/*   Updated: 2022/02/22 21:22:00 by vicmarti         ###   ########.fr       */
+/*   Updated: 2022/02/22 21:30:42 by vicmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,25 +82,28 @@ void	test(T &first, T &second)
 {
 	std::cout << "First: " << first << std::endl
 		<< "Second: " << second << std::endl;
-	std::cout << "Max: " << max(first, second) << std::endl;
-	std::cout << "Min: " << min(first, second) << std::endl;
+	std::cout << "Max: " << ::max<T>(first, second) << std::endl;
+	std::cout << "Min: " << ::min<T>(first, second) << std::endl;
 	std::cout << "Swap" << std::endl;
-	swap(first, second);
+	::swap<T>(first, second);
 	std::cout << "First: " << first << std::endl
 		<< "Second: " << second << std::endl;
 }
 
 int	main(void)
 {
-	int		i1 = -1;
-	int		i2 = 2;
-	char	c1 = '*';
-	char	c2 = '2';
-	Foo		f1("First", 0, '*');
-	Foo		f2("Second", 50, '\a');
+	int			i1 = -1;
+	int			i2 = 2;
+	char		c1 = '*';
+	char		c2 = '2';
+	Foo			f1("First", 0, '*');
+	Foo			f2("Second", 50, '\a');
+	std::string	s1 = "chaine1";
+	std::string	s2 = "chaine2";
 
 	test<int>(i1, i2);
 	test<char>(c1, c2);
 	test<Foo>(f1, f2);
+	test<std::string>(s1, s2);
 	return (111);
 }
